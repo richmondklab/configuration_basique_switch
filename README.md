@@ -20,7 +20,6 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/cablage.png?raw=true)
 
 
-**Réponse (Étape 1 d) :**
 
 &nbsp;
 
