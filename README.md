@@ -10,7 +10,6 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 
  ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/table%20d'adressage.png?raw=true)
 
-> Les captures sont à placer dans le dossier `captures/` avec les noms indiqués ci-dessous.
 
 ---
 
