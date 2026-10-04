@@ -17,9 +17,8 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 
 ### Étape 1 – Câblage
 
-**Capture : topologie**
+![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/cablage.png?raw=true)
 
-![topologie](captures/p1-e1-topologie.png)
 
 **Réponse (Étape 1 d) :**
 
