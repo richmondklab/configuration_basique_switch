@@ -291,11 +291,4 @@ ping 2001:db8:acad:1::2
 
 ---
 
-## Outils
 
-- Cisco Packet Tracer
-- Cisco IOS 16.x (commutateur)
-
-## Auteur
-
-_Votre nom_ – Réseaux & Cybersécurité
