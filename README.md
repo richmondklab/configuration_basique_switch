@@ -67,7 +67,6 @@ end
 copy running-config startup-config
 ```
 
-> ⚠️ Les mots de passe (`class`, `cisco`) sont ceux du TP. Ne jamais les utiliser en production.
 
 **Capture : configuration saisie sur S1**
 
