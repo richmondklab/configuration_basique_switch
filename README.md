@@ -8,12 +8,7 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 2. Configurer les paramètres de base des périphériques réseau
 3. Vérifier et tester la connectivité réseau
 
-## Table d'adressage
-
-| Périphérique | Interface | IPv4 | Masque | IPv6 | Passerelle |
-|---|---|---|---|---|---|
-| S1 | VLAN 99 (SVI) | 192.168.1.2 | 255.255.255.0 | 2001:DB8:ACAD:1::2/64 (lien local `FE80::2`) | 192.168.1.1 |
-| PC-A | NIC | _à compléter_ | 255.255.255.0 | _à compléter_ | 192.168.1.1 / `FE80::1` |
+ ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/table%20d'adressage.png?raw=true)
 
 > Les captures sont à placer dans le dossier `captures/` avec les noms indiqués ci-dessous.
 
