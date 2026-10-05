@@ -199,7 +199,7 @@ ping 2001:db8:acad:1::2
 
 ### Étape 4 – Déploiement de S1
 
-![rack](captures/p3-e4-rack.png)
+![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/Rack.png?raw=true)
 
 ---
 
