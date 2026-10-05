@@ -195,7 +195,7 @@ ping 2001:db8:acad:1::2
 
 ### Étape 3 – Gestion à distance (Telnet)
 
-![Telnet](https://github.com/richmondklab/configuration_basique_switch/blob/main/capture%20telnet.png?raw=true)
+![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/SVI.png?raw=true)
 
 ### Étape 4 – Déploiement de S1
 
