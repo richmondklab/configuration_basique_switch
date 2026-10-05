@@ -20,6 +20,11 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/cablage.png?raw=true)
 
 
+
+
+![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/capture%20telnet.png?raw=true)
+
+
 ---
 
 ## Partie 2 : Configuration de base
