@@ -35,6 +35,103 @@ Pourquoi pas Telnet ou SSH ?
 - Ces deux protocoles passent par le réseau, ce qui demande une configuration qui n'existe pas encore.
 
 
+Combien d'interfaces GigaBitethernet le commutateur a-t-il? : 
+
+interface GigabitEthernet1/0/1 à interface Gigabitethernet1/0/24
+et interface GigabitEthernet1/1/1 à interface GigabitEthernet1/1/4 
+donc au total 28.
+
+Quelle est la plage de valeurs affichée pour les lignes vty?: 0 4
+
+
+Switch# show startup-config
+
+startup-config is not present
+
+Question:
+Pourquoi ce message apparaît-il? 
+- aucune configuration n'est effectué actuellement.
+
+  Examinez les caractéristiques de l'interface SVI du VLAN 1.
+
+Switch# show interface vlan1
+
+Questions:
+Est-ce qu’une adresse IP est attribuée au VLAN 1? 
+
+pour le moment non,
+
+Quelle est l'adresse MAC de cette interface SVI:0060.2fde.172d 
+
+Cette interface est-elle opérationnelle ? NON
+
+     Examinez les propriétés IP de l'interface SVI du VLAN 1.
+
+Switch# show ip interface vlan1
+Vlan1 is administratively down, line protocol is down
+  Internet protocol processing disabled
+
+Quelle version de Cisco IOS le commutateur exécute-t-il?
+ la version: 16.3.2  
+
+ Quel est le nom de fichier de l’image système?
+   CAT3K_CAA-UNIVERSALK9
+
+   Quelle est l’adresse MAC de base de ce commutateur?
+   00:60:2F:DE:17:2D
+Switch# show interface gig1/0/6
+
+Question:
+L’interface est-elle activée ou désactivée?
+Activée
+
+GigabitEthernet1/0/6 is up, line protocol is up (connected)
+
+Quel événement pourrait désactiver une interface?
+
+un câble mal configuré ou panne matériel
+
+Quelle est l’adresse MAC de l’interface?
+000c.8589.1806 
+
+Quels sont les paramètres de vitesse et de mode duplex de l’interface?
+ Full-duplex, 100Mb/s
+
+ 
+Switch# show vlan
+
+Question:
+Quel est le nom du VLAN 1?
+
+ Quels sont les ports du VLAN 1 ?
+Gig1/0/1, Gig1/0/2, Gig1/0/3,
+
+Le VLAN 1 est-il actif? OUi
+
+Quel est le type de VLAN par défaut? Vlan1
+
+Observer la mémoire flash
+
+Exécutez l’une des commandes suivantes pour examiner le contenu du répertoire flash.
+
+Switch# show flash:
+
+Switch# dir flash:
+
+Les fichiers ont une extension, telle que .bin, à la fin du nom de fichier. Les répertoires n’ont pas d’extension.
+
+Question:
+Quel est le nom de fichier de l'image Cisco IOS?
+
+cat3k_caa-universalk9.16.03.02.SPA.bin
+
+
+
+
+
+
+
+
 ---
 
 ## Partie 2 : Configuration de base
