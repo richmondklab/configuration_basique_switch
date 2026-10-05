@@ -25,6 +25,16 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/capture%20telnet.png?raw=true)
 
 
+
+Pourquoi utiliser une connexion console pour la configuration initiale du commutateur? Pourquoi n'est-il pas possible de se connecter au commutateur par l'intermédiaire de Telnet ou de SSH? :
+
+Réponse: 
+- Un commutateur neuf n'a aucune configuration. La console est un accès physique direct qui fonctionne sans adresse IP, sans mot de passe et sans réseau. C'est donc le seul moyen de faire la configuration initiale.
+
+Pourquoi pas Telnet ou SSH ? 
+- Ces deux protocoles passent par le réseau, ce qui demande une configuration qui n'existe pas encore.
+
+
 ---
 
 ## Partie 2 : Configuration de base
