@@ -191,7 +191,7 @@ ping 192.168.1.2
 ping 2001:db8:acad:1::2
 ```
 
-![ping](captures/p3-e2-ping.png)
+![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/Pinging.png?raw=true)
 
 ### Étape 3 – Gestion à distance (Telnet)
 
