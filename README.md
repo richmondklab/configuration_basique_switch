@@ -8,8 +8,9 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 2. Configurer les paramètres de base des périphériques réseau
 3. Vérifier et tester la connectivité réseau
 
- ![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/table%20d'adressage.png?raw=true)
+## Table d'adressage
 
+![Table d'adressage](https://github.com/richmondklab/configuration_basique_switch/blob/main/table%20d'adressage.png?raw=true)
 
 ---
 
@@ -17,120 +18,91 @@ Travaux pratiques réalisés avec **Cisco Packet Tracer** : câblage d'un petit 
 
 ### Étape 1 – Câblage
 
-![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/cablage.png?raw=true)
+![Câblage](https://github.com/richmondklab/configuration_basique_switch/blob/main/cablage.png?raw=true)
 
+**Console vs Telnet/SSH**
 
+Un commutateur neuf n'a aucune configuration. La console est un accès physique direct qui fonctionne sans adresse IP, sans mot de passe et sans réseau : c'est le seul moyen de faire la configuration initiale. Telnet et SSH passent par le réseau et exigent une adresse IP, des mots de passe vty (et, pour SSH, un nom de domaine, des clés RSA et des utilisateurs), qui n'existent pas encore.
 
+### Étape 2 – Configuration par défaut
 
-![Image Alt](https://github.com/richmondklab/configuration_basique_switch/blob/main/capture%20telnet.png?raw=true)
+**`show running-config`**
 
+![running-config](captures/p1-e2-b-running-config.png)
 
+- Interfaces GigabitEthernet : Gi1/0/1 à Gi1/0/24 et Gi1/1/1 à Gi1/1/4, soit **28** au total.
+- Lignes vty : `0 4` et `5 15`.
 
-Pourquoi utiliser une connexion console pour la configuration initiale du commutateur? Pourquoi n'est-il pas possible de se connecter au commutateur par l'intermédiaire de Telnet ou de SSH? :
+**`show startup-config`**
 
-Réponse: 
-- Un commutateur neuf n'a aucune configuration. La console est un accès physique direct qui fonctionne sans adresse IP, sans mot de passe et sans réseau. C'est donc le seul moyen de faire la configuration initiale.
+![startup-config](captures/p1-e2-c-startup-config.png)
 
-Pourquoi pas Telnet ou SSH ? 
-- Ces deux protocoles passent par le réseau, ce qui demande une configuration qui n'existe pas encore.
+- Aucune configuration n'a été enregistrée en NVRAM : elle n'existe qu'en RAM (running-config).
 
+**`show interface vlan1`**
 
-Combien d'interfaces GigaBitethernet le commutateur a-t-il? : 
+![show interface vlan1](captures/p1-e2-d-interface-vlan1.png)
 
-interface GigabitEthernet1/0/1 à interface Gigabitethernet1/0/24
-et interface GigabitEthernet1/1/1 à interface GigabitEthernet1/1/4 
-donc au total 28.
+- Adresse IP : aucune pour le moment.
+- Adresse MAC de la SVI : `0060.2fde.172d`
+- Interface opérationnelle : non.
 
-Quelle est la plage de valeurs affichée pour les lignes vty?: 0 4
+**`show ip interface vlan1`**
 
+![show ip interface vlan1](captures/p1-e2-e-ip-interface-vlan1.png)
 
-Switch# show startup-config
-
-startup-config is not present
-
-Question:
-Pourquoi ce message apparaît-il? 
-- aucune configuration n'est effectué actuellement.
-
-  Examinez les caractéristiques de l'interface SVI du VLAN 1.
-
-Switch# show interface vlan1
-
-Questions:
-Est-ce qu’une adresse IP est attribuée au VLAN 1? 
-
-pour le moment non,
-
-Quelle est l'adresse MAC de cette interface SVI:0060.2fde.172d 
-
-Cette interface est-elle opérationnelle ? NON
-
-     Examinez les propriétés IP de l'interface SVI du VLAN 1.
-
-Switch# show ip interface vlan1
+```text
 Vlan1 is administratively down, line protocol is down
   Internet protocol processing disabled
+```
 
-Quelle version de Cisco IOS le commutateur exécute-t-il?
- la version: 16.3.2  
+**Après branchement du câble Ethernet**
 
- Quel est le nom de fichier de l’image système?
-   CAT3K_CAA-UNIVERSALK9
+![ip interface vlan1 après branchement](captures/p1-e2-f-ip-interface-vlan1.png)
 
-   Quelle est l’adresse MAC de base de ce commutateur?
-   00:60:2F:DE:17:2D
-Switch# show interface gig1/0/6
+- Aucun changement : la SVI reste « administratively down » tant qu'elle n'est pas activée.
 
-Question:
-L’interface est-elle activée ou désactivée?
-Activée
+**Activation de la SVI VLAN 1**
 
-GigabitEthernet1/0/6 is up, line protocol is up (connected)
+![activation vlan1](captures/p1-e2-g-no-shutdown.png)
 
-Quel événement pourrait désactiver une interface?
+**`show ip interface vlan1` après activation**
 
-un câble mal configuré ou panne matériel
+![ip interface vlan1 activé](captures/p1-e2-h-ip-interface-vlan1.png)
 
-Quelle est l’adresse MAC de l’interface?
-000c.8589.1806 
+- `Vlan1 is up, line protocol is up` — « Internet protocol processing disabled » (aucune adresse IP configurée).
 
-Quels sont les paramètres de vitesse et de mode duplex de l’interface?
- Full-duplex, 100Mb/s
+**`show version`**
 
- 
-Switch# show vlan
+![show version](captures/p1-e2-i-show-version.png)
 
-Question:
-Quel est le nom du VLAN 1?
+- Version IOS : `16.3.2`
+- Image système : `cat3k_caa-universalk9.16.03.02.SPA.bin`
+- Adresse MAC de base : `00:60:2F:DE:17:2D`
 
- Quels sont les ports du VLAN 1 ?
-Gig1/0/1, Gig1/0/2, Gig1/0/3,
+**`show interface gig1/0/6`**
 
-Le VLAN 1 est-il actif? OUi
+![show interface gig1/0/6](captures/p1-e2-j-interface-gig.png)
 
-Quel est le type de VLAN par défaut? Vlan1
+- État : activée (`up, line protocol is up (connected)`).
+- Ce qui peut la désactiver : câble débranché ou défectueux, panne matérielle, `shutdown` administratif.
+- Adresse MAC : `000c.8589.1806`
+- Vitesse / duplex : `Full-duplex, 100 Mb/s`
 
-Observer la mémoire flash
+**`show vlan`**
 
-Exécutez l’une des commandes suivantes pour examiner le contenu du répertoire flash.
+![show vlan](captures/p1-e2-k-show-vlan.png)
 
-Switch# show flash:
+- Nom du VLAN 1 : `default`
+- Ports : tous les ports du commutateur (Gi1/0/1 à Gi1/0/24 et Gi1/1/1 à Gi1/1/4).
+- Actif : oui.
+- Type : `enet`
 
-Switch# dir flash:
+**`dir flash:`**
 
-Les fichiers ont une extension, telle que .bin, à la fin du nom de fichier. Les répertoires n’ont pas d’extension.
+![flash](captures/p1-e2-l-flash.png)
 
-Question:
-Quel est le nom de fichier de l'image Cisco IOS?
-
-cat3k_caa-universalk9.16.03.02.SPA.bin
-
-
-
-
-
-
-
+- Image IOS : `cat3k_caa-universalk9.16.03.02.SPA.bin`
 
 ---
 
@@ -180,7 +152,7 @@ copy running-config startup-config
 ```
 
 
-**Capture : configuration saisie sur S1**
+**Configuration saisie sur S1**
 
 ![config S1](captures/p2-e1-config-s1.png)
 
@@ -188,9 +160,7 @@ copy running-config startup-config
 
 ![show vlan brief](captures/p2-e1-d-vlan-brief.png)
 
-**Réponse (Étape 1 g) :**
-
-&nbsp;
+**Rôle de `login`** : il oblige le commutateur à demander le mot de passe configuré ; sans cette commande, la ligne n'authentifie pas l'utilisateur.
 
 ### Étape 2 – Configuration IP de PC-A
 
@@ -210,17 +180,9 @@ copy running-config startup-config
 
 ![show interface vlan 99](captures/p3-e1-b-interface-vlan99.png)
 
-- Réponse 1 :
-
-  &nbsp;
-
-- Réponse 2 :
-
-  &nbsp;
-
-- Réponse 3 :
-
-  &nbsp;
+- Bande passante : 1 000 000 Kbit/s
+- État du VLAN 99 : `up`
+- État du protocole de ligne : `up`
 
 ### Étape 2 – Tests `ping`
 
@@ -233,7 +195,7 @@ ping 2001:db8:acad:1::2
 
 ### Étape 3 – Gestion à distance (Telnet)
 
-![telnet](captures/p3-e3-telnet.png)
+![Telnet](https://github.com/richmondklab/configuration_basique_switch/blob/main/capture%20telnet.png?raw=true)
 
 ### Étape 4 – Déploiement de S1
 
@@ -243,18 +205,8 @@ ping 2001:db8:acad:1::2
 
 ## Questions de réflexion
 
-**1.**
-
-&nbsp;
-
-**2.**
-
-&nbsp;
-
-**3.**
-
-&nbsp;
-
----
+1. **Mot de passe vty** : sans lui, l'accès Telnet est impossible ; avec lui, on limite l'accès distant aux personnes autorisées.
+2. **Changer le VLAN 1** : c'est le VLAN par défaut, connu de tous et visé par les attaques ; un VLAN dédié sépare le trafic de gestion et réduit l'exposition.
+3. **Éviter les mots de passe en clair** : `service password-encryption` pour la configuration, et surtout **SSH** à la place de Telnet, qui chiffre les échanges.
 
 
